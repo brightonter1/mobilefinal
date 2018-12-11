@@ -67,10 +67,10 @@ public class Profile extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                userId = getView().findViewById(R.id.profile_userid);
-//                name = getView().findViewById(R.id.profile_name);
-//                age = getView().findViewById(R.id.profile_age);
-//                pwd = getView().findViewById(R.id.profile_pwd);
+                userId = getView().findViewById(R.id.profile_userid);
+                name = getView().findViewById(R.id.profile_name);
+                age = getView().findViewById(R.id.profile_age);
+                pwd = getView().findViewById(R.id.profile_pwd);
 
                 SuserId = userId.getText().toString();
                 Sname = name.getText().toString();
@@ -78,13 +78,12 @@ public class Profile extends Fragment {
                 Spwd = pwd.getText().toString();
 
 
-                int iAge = Integer.valueOf(Spwd);
+                int iAge = Integer.valueOf(Sage);
 
-                Log.d("System", SuserId.length()+ " " + Sname +" " + Sage+" " + Spwd.length());
+                Log.d("System", SuserId+ " " + Sname +" " + Sage+" " + iAge);
 
 
-
-                if ((SuserId.length() >= 6 && SuserId.length() <= 12) && (Sname.contains(" ")) && (iAge >= 10 && iAge <= 80 && (Spwd.length() > 6 ))){
+                if ((SuserId.length() >= 6 && SuserId.length() <= 12) && Sname.contains(" ") && Spwd.length() > 6 && (iAge >= 10 && iAge <= 60)){
                     UpdateToSql();
                     writeFile();
                     getActivity().getSupportFragmentManager()
